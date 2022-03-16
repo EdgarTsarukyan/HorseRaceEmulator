@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="horseRider1" class="am.training.beans.HorseRider">
+        <property name="name" value="Edgar"/>
+        <property name="surName" value="Edgar"/>
+        <property name="age" value="28"/>
+    </bean>
+    <bean id="horse1" class="am.training.beans.Horse">
+       <property name="name" value="Butsefal"/>
+        <property name="breed" value="Arabian"/>
+        <property name="horseRider" ref="horseRider1"/>
+    </bean>
+
+    <bean id="horseRider2" class="am.training.beans.HorseRider">
+        <property name="name" value="Alex"/>
+        <property name="surName" value="Alex"/>
+        <property name="age" value="23"/>
+    </bean>
+    <bean id="horse2" class="am.training.beans.Horse">
+        <property name="name" value="Beatris"/>
+        <property name="breed" value="Yakut"/>
+        <property name="horseRider" ref="horseRider2"/>
+    </bean>
+
+    <bean id="horseRider3" class="am.training.beans.HorseRider">
+        <property name="name" value="Ashot"/>
+        <property name="surName" value="Ashot"/>
+        <property name="age" value="45"/>
+    </bean>
+    <bean id="horse3" class="am.training.beans.Horse">
+        <property name="name" value="Boni"/>
+        <property name="breed" value="Don"/>
+        <property name="horseRider" ref="horseRider3"/>
+    </bean>
+
+    <bean id="horseRider4" class="am.training.beans.HorseRider">
+        <property name="name" value="Ani"/>
+        <property name="surName" value="ani"/>
+        <property name="age" value="22"/>
+    </bean>
+    <bean id="horse4" class="am.training.beans.Horse">
+        <property name="name" value="Adelaida"/>
+        <property name="breed" value="Karacha"/>
+        <property name="horseRider" ref="horseRider4"/>
+    </bean>
+
+    <bean id="horseRider5" class="am.training.beans.HorseRider">
+        <property name="name" value="Garik"/>
+        <property name="surName" value="Garik"/>
+        <property name="age" value="30"/>
+    </bean>
+    <bean id="horse5" class="am.training.beans.Horse">
+        <property name="name" value="Max"/>
+        <property name="breed" value="Night"/>
+        <property name="horseRider" ref="horseRider5"/>
+    </bean>
+
+    <bean id="horseRider6" class="am.training.beans.HorseRider">
+        <property name="name" value="Arman"/>
+        <property name="surName" value="Arman"/>
+        <property name="age" value="38"/>
+    </bean>
+    <bean id="horse6" class="am.training.beans.Horse">
+        <property name="name" value="Dave"/>
+        <property name="breed" value="Bey"/>
+        <property name="horseRider" ref="horseRider6"/>
+    </bean>
+
+    <bean id="race1" class="am.training.beans.Race">
+        <property name="name" value="small"/>
+        <property name="length" value="100"/>
+        <property name="horseCount" value="2"/>
+    </bean>
+
+    <bean id="race2" class="am.training.beans.Race">
+        <property name="name" value="middle"/>
+        <property name="length" value="300"/>
+        <property name="horseCount" value="4"/>
+    </bean>
+
+    <bean id="race3" class="am.training.beans.Race">
+        <property name="name" value="big"/>
+        <property name="length" value="500"/>
+        <property name="horseCount" value="6"/>
+    </bean>
+
+    <util:list id="horseList" value-type="am.training.beans.Horse">
+        <ref bean="horse1"/>
+        <ref bean="horse2"/>
+        <ref bean="horse3"/>
+        <ref bean="horse4"/>
+        <ref bean="horse5"/>
+        <ref bean="horse6"/>
+    </util:list>
+
+    <util:list id = "raceList" value-type="am.training.beans.Race">
+        <ref bean="race1"/>
+        <ref bean="race2"/>
+        <ref bean="race3"/>
+    </util:list>
+</beans>
