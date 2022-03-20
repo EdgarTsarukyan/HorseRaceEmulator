@@ -3,10 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+   <bean name="horseService" class="am.training.service.HorseServiceImpl">
+       <constructor-arg name="horses" ref="horses"/>
+   </bean>
+
+    <bean name="raceService" class="am.training.service.RaceServiceImpl">
+        <property name="horseService" ref="horseService"/>
+    </bean>
+
     <bean id="horseRider1" class="am.training.beans.HorseRider">
         <property name="name" value="Edgar"/>
         <property name="surName" value="Edgar"/>
         <property name="age" value="28"/>
+
     </bean>
     <bean id="horse1" class="am.training.beans.Horse">
        <property name="name" value="Butsefal"/>
@@ -69,25 +79,25 @@
         <property name="horseRider" ref="horseRider6"/>
     </bean>
 
-    <bean id="race1" class="am.training.beans.Race">
-        <property name="name" value="small"/>
-        <property name="length" value="100"/>
-        <property name="horseCount" value="2"/>
-    </bean>
+<!--    <bean id="race1" class="am.training.beans.Race">-->
+<!--        <constructor-arg name="horses" ref="horses"/>-->
+<!--        <property name="length" value="100"/>-->
+<!--        <property name="startDate" value="2"/>-->
+<!--    </bean>-->
 
-    <bean id="race2" class="am.training.beans.Race">
-        <property name="name" value="middle"/>
-        <property name="length" value="300"/>
-        <property name="horseCount" value="4"/>
-    </bean>
+<!--    <bean id="race2" class="am.training.beans.Race">-->
+<!--        <property name="name" value="middle"/>-->
+<!--        <property name="length" value="300"/>-->
+<!--        <property name="horseCount" value="4"/>-->
+<!--    </bean>-->
 
-    <bean id="race3" class="am.training.beans.Race">
-        <property name="name" value="big"/>
-        <property name="length" value="500"/>
-        <property name="horseCount" value="6"/>
-    </bean>
+<!--    <bean id="race3" class="am.training.beans.Race">-->
+<!--        <property name="name" value="big"/>-->
+<!--        <property name="length" value="500"/>-->
+<!--        <property name="horseCount" value="6"/>-->
+<!--    </bean>-->
 
-    <util:list id="horseList" value-type="am.training.beans.Horse">
+    <util:list id="horses" value-type="am.training.beans.Horse">
         <ref bean="horse1"/>
         <ref bean="horse2"/>
         <ref bean="horse3"/>
@@ -96,9 +106,9 @@
         <ref bean="horse6"/>
     </util:list>
 
-    <util:list id = "raceList" value-type="am.training.beans.Race">
-        <ref bean="race1"/>
-        <ref bean="race2"/>
-        <ref bean="race3"/>
-    </util:list>
+<!--    <util:list id = "raceList" value-type="am.training.beans.Race">-->
+<!--        <ref bean="race1"/>-->
+<!--        <ref bean="race2"/>-->
+<!--        <ref bean="race3"/>-->
+<!--    </util:list>-->
 </beans>

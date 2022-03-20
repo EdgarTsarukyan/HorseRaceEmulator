@@ -1,44 +1,46 @@
 package am.training.beans;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 public class Race {
 
-    private String name;
-    private int length;
-    private int horseCount;
+    private List<Horse> participatingHorses;
+    private long length;
+    private LocalDate startDate;
 
     public Race() {
     }
 
-    public String getName() {
-        return name;
+    public Race(List<Horse> participatingHorses, long length, LocalDate startDate) {
+        this.participatingHorses = participatingHorses;
+        this.length = length;
+        this.startDate = startDate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<Horse> getParticipatingHorses() {
+        return participatingHorses;
     }
 
-    public int getLength() {
+    public void setParticipatingHorses(List<Horse> participatingHorses) {
+        this.participatingHorses = participatingHorses;
+    }
+
+    public long getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(long length) {
         this.length = length;
     }
 
-    public int getHorseCount() {
-        return horseCount;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setHorseCount(int horseCount) {
-        this.horseCount = horseCount;
-    }
-
-    public Race(String name, int length, int horseCount) {
-        this.name = name;
-        this.length = length;
-        this.horseCount = horseCount;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
     }
 
     @Override
@@ -46,20 +48,20 @@ public class Race {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Race race = (Race) o;
-        return length == race.length && horseCount == race.horseCount && Objects.equals(name, race.name);
+        return length == race.length && Objects.equals(participatingHorses, race.participatingHorses) && Objects.equals(startDate, race.startDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, length, horseCount);
+        return Objects.hash(participatingHorses, length, startDate);
     }
 
     @Override
     public String toString() {
         return "Race{" +
-                "name='" + name + '\'' +
+                "participatingHorses=" + participatingHorses +
                 ", length=" + length +
-                ", horseCount=" + horseCount +
+                ", startDate=" + startDate +
                 '}';
     }
 }
